@@ -4,7 +4,7 @@ import { useQuiz } from '../../context/QuizContext';
 import { PROMPT_TEMPLATE } from '../../constants/demoData';
 
 export const ImageUploader = () => {
-  const { apiKeys, startQuiz } = useQuiz();
+  const { apiKeys, startQuiz, showErrorModal } = useQuiz();
 
   const [provider, setProvider] = useState('openai');
   const [model, setModel] = useState('gpt-4o-mini');
@@ -23,7 +23,10 @@ export const ImageUploader = () => {
 
   const processFile = (file) => {
     if (!file.type.startsWith('image/')) {
-      alert('Please upload a valid image file (PNG, JPG, WEBP).');
+      showErrorModal(
+        'Invalid File Format',
+        'Please upload a valid image file (PNG, JPG, WEBP).'
+      );
       return;
     }
     setSelectedFile(file);
@@ -42,13 +45,19 @@ export const ImageUploader = () => {
 
   const processImageWithAI = async () => {
     if (!base64Image) {
-      alert('Please upload an image of a question paper first.');
+      showErrorModal(
+        'No Image Selected',
+        'Please upload an image of a question paper first before running AI extraction.'
+      );
       return;
     }
 
     const apiKey = provider === 'openai' ? apiKeys.openai : apiKeys.gemini;
     if (!apiKey) {
-      alert(`Please configure your ${provider.toUpperCase()} API key first by clicking the "API Keys" button in the top header.`);
+      showErrorModal(
+        'API Key Required',
+        `Please configure your ${provider.toUpperCase()} API key first by clicking the "API Keys" button in the top header.\n\nAlternatively, switch to the "Paste JSON / Text Series" tab for free keyless generation.`
+      );
       return;
     }
 
@@ -71,7 +80,7 @@ export const ImageUploader = () => {
       const parsedData = JSON.parse(cleanJson);
 
       if (!parsedData.questions || !Array.isArray(parsedData.questions) || parsedData.questions.length === 0) {
-        throw new Error('AI returned JSON, but no valid question array was found.');
+        throw new Error('AI Vision model returned a response, but no valid question array was found in the output JSON.');
       }
 
       if (title.trim()) {
@@ -86,7 +95,10 @@ export const ImageUploader = () => {
         startQuiz(parsedData);
       }, 500);
     } catch (err) {
-      alert('AI Processing Error: ' + err.message);
+      showErrorModal(
+        'AI Processing Error',
+        err.message
+      );
       setIsProcessing(false);
     }
   };

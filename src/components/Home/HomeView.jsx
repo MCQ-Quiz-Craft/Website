@@ -22,6 +22,7 @@ export const HomeView = () => {
 
       {/* Tab Switching Container */}
       <div class="max-w-4xl mx-auto glass-panel rounded-2xl p-2 sm:p-3 border border-slate-200 dark:border-neutral-800 shadow-sm">
+        {/* Upload Question Image tab commented out for future use
         <div class="grid grid-cols-2 gap-2 bg-slate-100 dark:bg-neutral-900 p-1.5 rounded-xl border border-slate-200 dark:border-neutral-800">
           <button
             onClick={() => setActiveTab('image')}
@@ -46,9 +47,11 @@ export const HomeView = () => {
             <span>Paste JSON / Text Series</span>
           </button>
         </div>
+        */}
 
         {/* Tab Content */}
-        {activeTab === 'image' ? <ImageUploader /> : <JsonImporter />}
+        {/* {activeTab === 'image' ? <ImageUploader /> : <JsonImporter />} */}
+        <JsonImporter />
       </div>
 
       {/* Pre-loaded / Sample Cards */}

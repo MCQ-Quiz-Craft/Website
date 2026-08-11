@@ -7,6 +7,7 @@ import { ResultView } from './components/Result/ResultView';
 import { ApiKeyModal } from './components/Modals/ApiKeyModal';
 import { PromptModal } from './components/Modals/PromptModal';
 import { SubmitConfirmModal } from './components/Modals/SubmitConfirmModal';
+import { ErrorAlertModal } from './components/Modals/ErrorAlertModal';
 
 export const App = () => {
   const { currentView } = useQuiz();
@@ -39,6 +40,7 @@ export const App = () => {
       <ApiKeyModal />
       <PromptModal />
       <SubmitConfirmModal />
+      <ErrorAlertModal />
     </div>
   );
 };

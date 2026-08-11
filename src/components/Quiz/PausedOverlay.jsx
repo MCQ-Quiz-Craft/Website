@@ -3,9 +3,9 @@ import { PauseCircle, Play } from 'lucide-react';
 import { useQuiz } from '../../context/QuizContext';
 
 export const PausedOverlay = () => {
-  const { isTimerPaused, togglePauseTimer } = useQuiz();
+  const { isTimerPaused, togglePauseTimer, testMode } = useQuiz();
 
-  if (!isTimerPaused) return null;
+  if (!isTimerPaused || testMode === 'real') return null;
 
   return (
     <div class="absolute inset-0 z-30 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center p-6 text-center space-y-4">
