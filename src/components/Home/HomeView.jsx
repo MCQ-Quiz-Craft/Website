@@ -7,7 +7,7 @@ export const HomeView = () => {
   return (
     <section class="transition-all duration-300">
       {/* 2-Column Split: Static Marketing & Sample Tests on Left, Interactive Form on Right */}
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
         {/* Left Column: Static Information, Value Proposition, Workflow & Sample Tests */}
         <div class="lg:col-span-6 flex flex-col justify-between h-full space-y-3.5">
           <div class="space-y-3.5">

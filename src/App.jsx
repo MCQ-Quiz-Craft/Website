@@ -18,7 +18,7 @@ export const App = () => {
       <Header />
 
       {/* Main Container */}
-      <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-1.5 flex flex-col justify-center">
+      <main class="flex-1 max-w-[1600px] w-full mx-auto px-3 sm:px-5 lg:px-6 py-2 flex flex-col justify-center">
         {currentView === 'home' && <HomeView />}
         {currentView === 'quiz' && <QuizView />}
         {currentView === 'result' && <ResultView />}
@@ -26,7 +26,7 @@ export const App = () => {
 
       {/* Footer */}
       <footer class="w-full border-t border-slate-200 dark:border-neutral-800/80 py-1.5 text-center text-xs text-slate-500 dark:text-neutral-400 shrink-0">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-1.5">
+        <div class="max-w-[1600px] mx-auto px-3 sm:px-5 lg:px-6 flex flex-col sm:flex-row items-center justify-between gap-1.5">
           <p class="text-[11px]">© 2026 QuizCraft AI - Interactive Test Series Generator. Built with React & Vision AI.</p>
           <div class="flex items-center space-x-4 text-[11px]">
             <span class="hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Privacy</span>
