@@ -2,81 +2,82 @@ import React from 'react';
 import { Zap, CheckCircle2 } from 'lucide-react';
 import { JsonImporter } from './JsonImporter';
 import { SampleTests } from './SampleTests';
+import './HomeView.css';
 
 export const HomeView = () => {
   return (
-    <section class="transition-all duration-300">
+    <section className="home-view-section">
       {/* 2-Column Split: Static Marketing & Sample Tests on Left, Interactive Form on Right */}
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
+      <div className="home-view-grid">
         {/* Left Column: Static Information, Value Proposition, Workflow & Sample Tests */}
-        <div class="lg:col-span-6 flex flex-col justify-between h-full space-y-3.5">
-          <div class="space-y-3.5">
+        <div className="home-view-left">
+          <div className="home-view-content">
             {/* Headline & Subtitle */}
-            <div class="space-y-1.5">
-              <h2 class="text-2xl sm:text-3xl lg:text-[30px] font-heading font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15]">
+            <div className="home-view-header">
+              <h2 className="home-view-title">
                 Convert Any{' '}
-                <span class="text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-white dark:via-neutral-200 dark:to-neutral-400 underline decoration-slate-400 dark:no-underline">
+                <span className="home-view-highlight">
                   Question Paper Image
                 </span>{' '}
                 into a Real Test Series
               </h2>
 
               {/* Description / Static Data */}
-              <p class="text-slate-600 dark:text-neutral-300 text-xs sm:text-sm leading-relaxed">
+              <p className="home-view-desc">
                 Upload photos of textbook pages, handwritten notes, or test papers. Use your ChatGPT / Gemini API keys directly, or copy our prompt structure to use with any free AI model!
               </p>
             </div>
 
             {/* 3-Step Visual Workflow Guide */}
-            <div class="bg-slate-100/90 dark:bg-neutral-900/60 rounded-xl p-3 border border-slate-200 dark:border-neutral-800 space-y-2 shadow-xs">
-              <div class="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-neutral-400 flex items-center gap-1.5">
-                <Zap class="w-3 h-3 text-amber-500" /> 3-Step Instant Setup
+            <div className="home-workflow">
+              <div className="workflow-header">
+                <Zap className="icon-zap" /> 3-Step Instant Setup
               </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="p-2 rounded-lg bg-white dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 space-y-0.5">
-                  <span class="text-[9px] font-mono font-bold text-slate-400 dark:text-neutral-500">STEP 01</span>
-                  <p class="text-xs font-semibold text-slate-900 dark:text-white truncate">Snap / Note Photo</p>
-                  <p class="text-[10px] text-slate-500 dark:text-neutral-400 leading-snug">Textbook or paper</p>
+              <div className="workflow-grid">
+                <div className="workflow-step">
+                  <span className="workflow-step-num">STEP 01</span>
+                  <p className="workflow-step-title">Snap / Note Photo</p>
+                  <p className="workflow-step-desc">Textbook or paper</p>
                 </div>
-                <div class="p-2 rounded-lg bg-white dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 space-y-0.5">
-                  <span class="text-[9px] font-mono font-bold text-slate-400 dark:text-neutral-500">STEP 02</span>
-                  <p class="text-xs font-semibold text-slate-900 dark:text-white truncate">AI Schema Prompt</p>
-                  <p class="text-[10px] text-slate-500 dark:text-neutral-400 leading-snug">ChatGPT / Gemini</p>
+                <div className="workflow-step">
+                  <span className="workflow-step-num">STEP 02</span>
+                  <p className="workflow-step-title">AI Schema Prompt</p>
+                  <p className="workflow-step-desc">ChatGPT / Gemini</p>
                 </div>
-                <div class="p-2 rounded-lg bg-white dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 space-y-0.5">
-                  <span class="text-[9px] font-mono font-bold text-slate-400 dark:text-neutral-500">STEP 03</span>
-                  <p class="text-xs font-semibold text-slate-900 dark:text-white truncate">Live Test Series</p>
-                  <p class="text-[10px] text-slate-500 dark:text-neutral-400 leading-snug">Instant timed exam</p>
+                <div className="workflow-step">
+                  <span className="workflow-step-num">STEP 03</span>
+                  <p className="workflow-step-title">Live Test Series</p>
+                  <p className="workflow-step-desc">Instant timed exam</p>
                 </div>
               </div>
             </div>
 
             {/* Feature Badges & Value Checklist */}
-            <div class="space-y-1.5 text-xs text-slate-600 dark:text-neutral-300">
-              <div class="flex items-start gap-2">
-                <CheckCircle2 class="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                <span><strong class="text-slate-900 dark:text-white font-semibold">Real Test & Practice Modes:</strong> Strict exam timer with auto-submit, or self-paced review.</span>
+            <div className="home-features">
+              <div className="feature-item">
+                <CheckCircle2 className="icon-check-emerald" />
+                <span><strong className="feature-strong">Real Test & Practice Modes:</strong> Strict exam timer with auto-submit, or self-paced review.</span>
               </div>
-              <div class="flex items-start gap-2">
-                <CheckCircle2 class="w-3.5 h-3.5 text-cyan-500 shrink-0 mt-0.5" />
-                <span><strong class="text-slate-900 dark:text-white font-semibold">Hindi & English Bilingual Ready:</strong> Handles Devanagari script, math formulas, and logic diagrams.</span>
+              <div className="feature-item">
+                <CheckCircle2 className="icon-check-cyan" />
+                <span><strong className="feature-strong">Hindi & English Bilingual Ready:</strong> Handles Devanagari script, math formulas, and logic diagrams.</span>
               </div>
-              <div class="flex items-start gap-2">
-                <CheckCircle2 class="w-3.5 h-3.5 text-brand-500 shrink-0 mt-0.5" />
-                <span><strong class="text-slate-900 dark:text-white font-semibold">Instant Scoring & Explanations:</strong> Detailed step-by-step solutions for each question.</span>
+              <div className="feature-item">
+                <CheckCircle2 className="icon-check-brand" />
+                <span><strong className="feature-strong">Instant Scoring & Explanations:</strong> Detailed step-by-step solutions for each question.</span>
               </div>
             </div>
           </div>
 
           {/* Sample & Saved Test Series Cards (Anchored at the bottom) */}
-          <div class="pt-2 mt-auto">
+          <div className="home-view-bottom">
             <SampleTests />
           </div>
         </div>
 
         {/* Right Column: Interactive Form (JsonImporter) */}
-        <div class="lg:col-span-6 flex flex-col h-full">
-          <div class="glass-panel rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-xl overflow-hidden flex flex-col h-full">
+        <div className="home-view-right">
+          <div className="glass-panel importer-container">
             {/* Importer Form with Integrated Header */}
             <JsonImporter />
           </div>

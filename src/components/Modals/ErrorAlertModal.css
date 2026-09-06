@@ -1,0 +1,195 @@
+/* ErrorAlertModal.css */
+.error-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+html.dark .error-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.error-modal-content {
+  width: 100%;
+  max-width: 36rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #fecdd3;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+}
+html.dark .error-modal-content {
+  border-color: rgba(136, 19, 55, 0.6);
+  background-color: rgba(23, 23, 23, 0.95);
+}
+
+.error-accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.375rem;
+  background-image: linear-gradient(to right, #f43f5e, #f59e0b, #e11d48);
+}
+
+.error-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.375rem;
+  border-radius: 0.5rem;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error-close-btn:hover {
+  color: #334155;
+  background-color: #f1f5f9;
+}
+html.dark .error-close-btn:hover {
+  color: #ffffff;
+  background-color: #262626;
+}
+
+.error-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-right: 1.5rem;
+}
+
+.error-icon-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background-color: #ffe4e6;
+  color: #e11d48;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fecdd3;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+html.dark .error-icon-container {
+  background-color: rgba(244, 63, 94, 0.2);
+  color: #fb7185;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.error-title {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-primary);
+}
+
+.error-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.125rem;
+}
+
+.error-detail-box {
+  background-color: rgba(255, 241, 242, 0.7);
+  border: 1px solid #fecdd3;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+html.dark .error-detail-box {
+  background-color: rgba(76, 5, 25, 0.3);
+  border-color: rgba(136, 19, 55, 0.5);
+}
+
+.error-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error-detail-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9f1239;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+html.dark .error-detail-title { color: #fda4af; }
+
+.error-copy-btn {
+  font-size: 0.75rem;
+  color: #be123c;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.error-copy-btn:hover { text-decoration: underline; }
+html.dark .error-copy-btn { color: #fda4af; }
+
+.error-copy-icon.copied { color: #10b981; }
+
+.error-message {
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: #881337;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.625;
+}
+html.dark .error-message { color: #fecdd3; }
+
+.error-footer {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error-dismiss-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.error-dismiss-btn:hover { background-color: #1e293b; }
+html.dark .error-dismiss-btn {
+  background-color: #ffffff;
+  color: #000000;
+}
+html.dark .error-dismiss-btn:hover { background-color: #e5e5e5; }

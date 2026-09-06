@@ -2,6 +2,7 @@ import React from 'react';
 import { Award, HelpCircle, CheckCircle, XCircle, Clock, FileText, RotateCcw, Plus } from 'lucide-react';
 import { useQuiz } from '../../context/QuizContext';
 import { SolutionCard } from './SolutionCard';
+import './ResultView.css';
 
 export const ResultView = () => {
   const { currentQuiz, userAnswers, timerSeconds, startQuiz, navigateTo } = useQuiz();
@@ -32,29 +33,29 @@ export const ResultView = () => {
   };
 
   return (
-    <section class="space-y-8 transition-all duration-300">
+    <section className="result-section">
       {/* Summary Banner */}
-      <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-neutral-800 relative overflow-hidden shadow-sm">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          <div class="space-y-3 lg:col-span-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/30 text-xs font-semibold">
-              <Award class="w-4 h-4" /> Test Completed Successfully
+      <div className="glass-panel summary-banner">
+        <div className="summary-grid">
+          <div className="summary-content">
+            <div className="status-badge">
+              <Award className="icon-status" /> Test Completed Successfully
             </div>
-            <h2 class="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h2 className="summary-title">
               Performance & Diagnostic Summary
             </h2>
-            <p class="text-slate-600 dark:text-neutral-400 text-xs sm:text-sm">
+            <p className="summary-desc">
               Detailed score report, question accuracy analysis, and AI step-by-step explanations.
             </p>
           </div>
 
           {/* Score Card Ring */}
-          <div class="glass-card rounded-2xl p-6 border border-slate-300 dark:border-neutral-700 text-center space-y-2 flex flex-col items-center justify-center glow-effect shadow-md">
-            <div class="text-xs uppercase font-bold tracking-widest text-slate-500 dark:text-neutral-400">Your Score</div>
-            <div class="text-4xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white font-mono">
+          <div className="glass-card score-card glow-effect">
+            <div className="score-label">Your Score</div>
+            <div className="score-value">
               {correctCount} / {totalQuestions}
             </div>
-            <div class="inline-block px-3 py-0.5 rounded-full text-xs font-semibold font-mono bg-slate-200 dark:bg-neutral-800 text-slate-800 dark:text-neutral-200 border border-slate-300 dark:border-neutral-700">
+            <div className="accuracy-badge">
               {percentage}% Accuracy
             </div>
           </div>
@@ -62,64 +63,64 @@ export const ResultView = () => {
       </div>
 
       {/* Metric Cards */}
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="glass-panel rounded-2xl p-4 border border-slate-200 dark:border-neutral-800 space-y-1 shadow-sm">
-          <div class="text-xs text-slate-500 dark:text-neutral-400 font-medium flex items-center justify-between">
+      <div className="metrics-grid">
+        <div className="glass-panel metric-card">
+          <div className="metric-header">
             <span>Total Questions</span>
-            <HelpCircle class="w-4 h-4 text-slate-400" />
+            <HelpCircle className="icon-base metric-icon-help" />
           </div>
-          <div class="text-2xl font-bold font-mono text-slate-900 dark:text-white">{totalQuestions}</div>
+          <div className="metric-value default">{totalQuestions}</div>
         </div>
 
-        <div class="glass-panel rounded-2xl p-4 border border-slate-200 dark:border-neutral-800 space-y-1 shadow-sm">
-          <div class="text-xs text-slate-500 dark:text-neutral-400 font-medium flex items-center justify-between">
+        <div className="glass-panel metric-card">
+          <div className="metric-header">
             <span>Correct Answers</span>
-            <CheckCircle class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <CheckCircle className="icon-base metric-icon-correct" />
           </div>
-          <div class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">{correctCount}</div>
+          <div className="metric-value correct">{correctCount}</div>
         </div>
 
-        <div class="glass-panel rounded-2xl p-4 border border-slate-200 dark:border-neutral-800 space-y-1 shadow-sm">
-          <div class="text-xs text-slate-500 dark:text-neutral-400 font-medium flex items-center justify-between">
+        <div className="glass-panel metric-card">
+          <div className="metric-header">
             <span>Incorrect Answers</span>
-            <XCircle class="w-4 h-4 text-rose-600 dark:text-rose-400" />
+            <XCircle className="icon-base metric-icon-incorrect" />
           </div>
-          <div class="text-2xl font-bold font-mono text-rose-600 dark:text-rose-400">{incorrectCount}</div>
+          <div className="metric-value incorrect">{incorrectCount}</div>
         </div>
 
-        <div class="glass-panel rounded-2xl p-4 border border-slate-200 dark:border-neutral-800 space-y-1 shadow-sm">
-          <div class="text-xs text-slate-500 dark:text-neutral-400 font-medium flex items-center justify-between">
+        <div className="glass-panel metric-card">
+          <div className="metric-header">
             <span>Time Spent</span>
-            <Clock class="w-4 h-4 text-amber-500" />
+            <Clock className="icon-base metric-icon-time" />
           </div>
-          <div class="text-2xl font-bold font-mono text-slate-900 dark:text-white">{formatTimer(timerSeconds)}</div>
+          <div className="metric-value default">{formatTimer(timerSeconds)}</div>
         </div>
       </div>
 
       {/* Solutions & Detailed Explanations Section */}
-      <div class="space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-4">
-          <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
-            <FileText class="w-5 h-5 text-slate-700 dark:text-neutral-300" /> Detailed Solutions & Explanations
+      <div className="solutions-section">
+        <div className="solutions-header-row">
+          <h3 className="solutions-title">
+            <FileText className="solutions-title-icon" /> Detailed Solutions & Explanations
           </h3>
-          <div class="flex items-center space-x-2">
+          <div className="solutions-actions">
             <button
               onClick={() => startQuiz(currentQuiz)}
-              class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-200 hover:bg-slate-300 dark:bg-neutral-900 dark:hover:bg-neutral-800 text-slate-800 dark:text-white border border-slate-300 dark:border-neutral-700 transition flex items-center gap-1"
+              className="action-btn secondary"
             >
-              <RotateCcw class="w-3.5 h-3.5" /> Re-take Test
+              <RotateCcw className="icon-sm" /> Re-take Test
             </button>
             <button
               onClick={() => navigateTo('home')}
-              class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-black transition flex items-center gap-1"
+              className="action-btn primary"
             >
-              <Plus class="w-3.5 h-3.5" /> Create New Test
+              <Plus className="icon-sm" /> Create New Test
             </button>
           </div>
         </div>
 
         {/* Solution Items List */}
-        <div class="space-y-4">
+        <div className="solutions-list">
           {currentQuiz.questions.map((q, idx) => (
             <SolutionCard
               key={idx}
