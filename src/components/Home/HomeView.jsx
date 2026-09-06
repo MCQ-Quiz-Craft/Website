@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Zap, CheckCircle2 } from 'lucide-react';
+import { Zap, CheckCircle2 } from 'lucide-react';
 import { JsonImporter } from './JsonImporter';
 import { SampleTests } from './SampleTests';
 
@@ -11,12 +11,6 @@ export const HomeView = () => {
         {/* Left Column: Static Information, Value Proposition, Workflow & Sample Tests */}
         <div class="lg:col-span-6 flex flex-col justify-between h-full space-y-3.5">
           <div class="space-y-3.5">
-            {/* Eyebrow Pill */}
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 dark:bg-white/10 text-brand-700 dark:text-neutral-200 border border-brand-500/20 dark:border-white/15 backdrop-blur-sm shadow-xs">
-              <Sparkles class="w-3.5 h-3.5 text-amber-500" />
-              <span>AI-Powered Exam Engine • 100% Free & Open</span>
-            </div>
-
             {/* Headline & Subtitle */}
             <div class="space-y-1.5">
               <h2 class="text-2xl sm:text-3xl lg:text-[30px] font-heading font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15]">
