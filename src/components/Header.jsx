@@ -16,8 +16,8 @@ export const Header = () => {
   const hasApiKeys = apiKeys.openai || apiKeys.gemini;
 
   return (
-    <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-200 dark:border-neutral-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-200 dark:border-neutral-800 shrink-0">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         {/* Logo & Title */}
         <div class="flex items-center space-x-3 cursor-pointer" onClick={() => navigateTo('home')}>
           <div class="w-10 h-10 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-black flex items-center justify-center shadow-lg transition">

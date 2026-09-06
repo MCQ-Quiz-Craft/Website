@@ -8,13 +8,6 @@ export const ErrorAlertModal = () => {
 
   if (!errorModal.isOpen) return null;
 
-  const copyPromptToClipboard = () => {
-    navigator.clipboard.writeText(PROMPT_TEMPLATE).then(() => {
-      setCopiedPrompt(true);
-      setTimeout(() => setCopiedPrompt(false), 2000);
-    });
-  };
-
   const copyErrorToClipboard = () => {
     navigator.clipboard.writeText(`${errorModal.title}\n${errorModal.message}`).then(() => {
       setCopiedError(true);
