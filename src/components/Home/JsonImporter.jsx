@@ -69,9 +69,9 @@ export const JsonImporter = () => {
   };
 
   return (
-    <div class="flex flex-col">
+    <div class="flex flex-col h-full">
       {/* Integrated Header: "Generate Your Test Series" + "Free Keyless Mode: 1-Click Prompt Schema" + Copy button */}
-      <div class="px-4 py-3 border-b border-slate-200 dark:border-neutral-800/80 bg-slate-100/90 dark:bg-neutral-900/70 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+      <div class="px-4 py-3 border-b border-slate-200 dark:border-neutral-800/80 bg-slate-100/90 dark:bg-neutral-900/70 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shrink-0">
         <div class="space-y-0.5 min-w-0">
           <div class="flex items-center gap-2">
             <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
@@ -122,29 +122,27 @@ export const JsonImporter = () => {
       </div>
 
       {/* Form Content Body */}
-      <div class="p-3.5 sm:p-4 space-y-3">
+      <div class="p-3.5 sm:p-4 flex flex-col flex-1 justify-between gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1">Test Title (Optional)</label>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="e.g. Boolean Algebra & Logic Gates"
+            class="w-full bg-white dark:bg-neutral-900 border border-slate-300 dark:border-neutral-700 text-slate-900 dark:text-white rounded-lg px-3 py-2 text-xs focus:ring-1 focus:ring-slate-900 dark:focus:ring-white outline-none placeholder-slate-400 dark:placeholder-neutral-500 shadow-xs"
+          />
+        </div>
 
-      <div>
-        <label class="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1">Test Title (Optional)</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="e.g. Boolean Algebra & Logic Gates"
-          class="w-full bg-white dark:bg-neutral-900 border border-slate-300 dark:border-neutral-700 text-slate-900 dark:text-white rounded-lg px-3 py-2 text-xs focus:ring-1 focus:ring-slate-900 dark:focus:ring-white outline-none placeholder-slate-400 dark:placeholder-neutral-500 shadow-xs"
-        />
-      </div>
-
-      <div>
-        <label class="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1">Paste Questions JSON or Text Payload</label>
-        <textarea
-          rows={4}
-          value={jsonText}
-          onChange={(e) => setJsonText(e.target.value)}
-          placeholder={`Paste your JSON output here... e.g.\n{\n  "title": "Boolean Algebra Quiz",\n  "questions": [\n    {\n      "id": 1,\n      "question": "निम्न में से NAND गेट का चयन कीजिए।",\n      "options": ["A", "B", "C", "D"],\n      "correctAnswer": 0,\n      "explanation": "NAND gate is created by adding NOT bubble to AND gate."\n    }\n  ]\n}`}
-          class="w-full bg-white dark:bg-neutral-900 border border-slate-300 dark:border-neutral-700 text-slate-900 dark:text-neutral-100 font-mono text-xs rounded-lg p-2.5 focus:ring-1 focus:ring-slate-900 dark:focus:ring-white outline-none placeholder-slate-400 dark:placeholder-neutral-500 shadow-xs min-h-[95px]"
-        />
-      </div>
+        <div class="flex flex-col flex-1 min-h-[90px]">
+          <label class="block text-xs font-semibold text-slate-700 dark:text-neutral-300 mb-1">Paste Questions JSON or Text Payload</label>
+          <textarea
+            value={jsonText}
+            onChange={(e) => setJsonText(e.target.value)}
+            placeholder={`Paste your JSON output here... e.g.\n{\n  "title": "Boolean Algebra Quiz",\n  "questions": [\n    {\n      "id": 1,\n      "question": "निम्न में से NAND गेट का चयन कीजिए।",\n      "options": ["A", "B", "C", "D"],\n      "correctAnswer": 0,\n      "explanation": "NAND gate is created by adding NOT bubble to AND gate."\n    }\n  ]\n}`}
+            class="w-full flex-1 bg-white dark:bg-neutral-900 border border-slate-300 dark:border-neutral-700 text-slate-900 dark:text-neutral-100 font-mono text-xs rounded-lg p-2.5 focus:ring-1 focus:ring-slate-900 dark:focus:ring-white outline-none placeholder-slate-400 dark:placeholder-neutral-500 shadow-xs resize-none min-h-[90px]"
+          />
+        </div>
 
       {/* Test Environment Selection (Real Test vs Practice Test) */}
       <div class="space-y-2 bg-slate-50 dark:bg-neutral-900/40 p-2.5 rounded-xl border border-slate-200 dark:border-neutral-800">

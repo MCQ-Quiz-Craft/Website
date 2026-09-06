@@ -18,7 +18,7 @@ export const SampleTests = () => {
         {/* Pre-loaded attached image test */}
         <div
           onClick={loadDemoTest}
-          class="glass-card rounded-xl p-3 border border-slate-300 dark:border-neutral-700 hover:border-slate-900 dark:hover:border-white transition-all duration-200 cursor-pointer group flex flex-col justify-between space-y-2 shadow-sm hover:shadow-md"
+          class="glass-card rounded-xl p-3 border border-slate-300 dark:border-neutral-700 hover:border-slate-900 dark:hover:border-white transition-all duration-200 cursor-pointer group flex flex-col justify-between space-y-2 shadow-sm hover:shadow-md h-full"
         >
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
@@ -46,7 +46,7 @@ export const SampleTests = () => {
         </div>
 
         {/* Custom / Uploaded card */}
-        <div class="glass-card rounded-xl p-3 border border-slate-200 dark:border-neutral-800 flex flex-col justify-between space-y-2 opacity-90 shadow-sm">
+        <div class="glass-card rounded-xl p-3 border border-slate-200 dark:border-neutral-800 flex flex-col justify-between space-y-2 opacity-90 shadow-sm h-full">
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
               <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-semibold bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/30 flex items-center gap-1">
